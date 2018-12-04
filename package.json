@@ -79,8 +79,7 @@
   },
   "prettier": {
     "proseWrap": "never",
-    "singleQuote": true,
-    "semi": false
+    "singleQuote": true
   },
   "size-limit": [
     {

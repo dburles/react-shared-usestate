@@ -1,32 +1,65 @@
-import React from 'react'
+import React from 'react';
+
+/**
+ * @kind typedef
+ * @name ReactUseStateHook
+ * @type {function}
+ * @returns {Array<ReactUseStateState, ReactUseStateSetter>}
+ */
+
+/**
+ * @kind typedef
+ * @name ReactUseStateState
+ * @type {*}
+ */
+
+/**
+ * @kind typedef
+ * @name ReactUseStateSetter
+ * @type {function}
+ * @param {*} newState A new state
+ */
 
 /**
  * Creates a shared state container.
  * @kind function
  * @name createSharedUseState
  * @param {*} [initialState] An initial state.
- * @returns {function} A React hook.
+ * @returns {ReactUseStateHook} A React hook.
  */
 export const createSharedUseState = initialState => {
-  let state = initialState
-  const subscriptions = []
+  let state = initialState;
+  const subscriptions = [];
 
-  // eslint-disable-next-line
+  /**
+   * Sets state
+   * @kind function
+   * @name createSharedUseState~set
+   * @param {*} newState A new state
+   * @ignore
+   */
   const set = newState => {
-    state = typeof newState === 'function' ? newState(state) : newState
-    subscriptions.forEach(cb => cb())
-  }
+    state = typeof newState === 'function' ? newState(state) : newState;
+    subscriptions.forEach(cb => cb());
+  };
 
-  // eslint-disable-next-line
-  const onUpdate = fn => {
-    subscriptions.push(fn)
-    return () => subscriptions.splice(subscriptions.indexOf(fn), 1)
-  }
+  /**
+   * Subscribes a React component to state changes
+   * @kind function
+   * @name subscribe
+   * @param {function} cb A callback function
+   * @returns {function} Unsubscribes from state changes
+   * @ignore
+   */
+  const subscribe = cb => {
+    subscriptions.push(cb);
+    return () => subscriptions.splice(subscriptions.indexOf(cb), 1);
+  };
 
   return () => {
-    const [, setState] = React.useState()
-    React.useEffect(() => onUpdate(setState), [])
+    const [, setState] = React.useState();
+    React.useEffect(() => subscribe(setState), []);
 
-    return [state, set]
-  }
-}
+    return [state, set];
+  };
+};
