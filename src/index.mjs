@@ -8,16 +8,18 @@ import React from 'react';
  */
 
 /**
+ * The current state.
  * @kind typedef
  * @name ReactUseStateState
  * @type {*}
  */
 
 /**
+ * Call this function to update the state.
  * @kind typedef
  * @name ReactUseStateSetter
- * @type {function}
- * @param {*} newState A new state
+ * @type {string|function}
+ * @param {*} newState A new state.
  */
 
 /**
