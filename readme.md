@@ -14,26 +14,26 @@ To install from [npm](https://npmjs.com/) run:
 
 ## Usage
 
-Create a shared state container, with an initial state of 0:
+1. Create a shared state container, with an initial state of 0:
 
-```js
-import { createSharedUseState } from 'react-shared-usestate';
+   ```js
+   import { createSharedUseState } from 'react-shared-usestate';
 
-// The recommended naming convention is useXState, i.e. useCounterState:
-export const useCounterState = createSharedUseState(0);
-```
+   // The recommended naming convention is useXState, i.e. useCounterState:
+   export const useCounterState = createSharedUseState(0);
+   ```
 
-Now you can use your shared state hook almost exactly as you would a regular useState hook (minus the initial state, since we set that earlier):
+2. Now you can use your shared state hook almost exactly as you would a regular useState hook (minus the initial state, since we set that earlier):
 
-```js
-import { useCounterState } from './state';
+   ```js
+   import { useCounterState } from './state';
 
-const Counter = props => {
-  const [count, setCount] = useCounterState();
-  // setCount has the same API as a normal useState hook.
-  return <button onClick={() => setCount(count + 1)}>{count}</button>;
-};
-```
+   const Counter = props => {
+     const [count, setCount] = useCounterState();
+     // setCount has the same API as a normal useState hook.
+     return <button onClick={() => setCount(count + 1)}>{count}</button>;
+   };
+   ```
 
 ## API
 
