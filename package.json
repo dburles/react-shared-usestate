@@ -1,0 +1,97 @@
+{
+  "private": true,
+  "name": "react-shared-usestate",
+  "version": "1.0.0-alpha.1",
+  "description": "Create globally shared React useState hooks.",
+  "license": "MIT",
+  "author": "David Burles",
+  "repository": "github:dburles/react-shared-usestate",
+  "homepage": "https://github.com/dburles/react-shared-usestate#readme",
+  "bugs": "https://github.com/dburles/react-shared-usestate/issues",
+  "keywords": [
+    "react",
+    "hooks",
+    "usestate",
+    "global",
+    "shared",
+    "state"
+  ],
+  "files": [
+    "lib"
+  ],
+  "main": "lib",
+  "engines": {
+    "node": ">=6"
+  },
+  "browserslist": "> 0.5%, not dead, node 6",
+  "peerDependencies": {
+    "react": "^16.7.0-alpha.1"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.1.5",
+    "@babel/core": "^7.1.6",
+    "@babel/preset-env": "^7.1.6",
+    "babel-eslint": "^10.0.1",
+    "eslint": "^5.9.0",
+    "eslint-config-env": "^2.0.0",
+    "eslint-config-prettier": "^3.3.0",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-import-order-alphabetical": "^0.0.1",
+    "eslint-plugin-node": "^8.0.0",
+    "eslint-plugin-prettier": "^3.0.0",
+    "eslint-plugin-react": "^7.11.1",
+    "husky": "^1.2.0",
+    "jsdoc-md": "^1.7.0",
+    "lint-staged": "^8.0.5",
+    "prettier": "^1.15.2",
+    "react": "^16.7.0-alpha.1",
+    "size-limit": "^0.21.0"
+  },
+  "scripts": {
+    "prepare": "npm run prepare:clean && npm run prepare:mjs && npm run prepare:js && npm run prepare:jsdoc && npm run prepare:prettier",
+    "prepare:clean": "rm -rf lib",
+    "prepare:mjs": "BABEL_ESM=1 babel src -d lib --keep-file-extension",
+    "prepare:js": "babel src -d lib",
+    "prepare:jsdoc": "jsdoc-md",
+    "prepare:prettier": "prettier 'lib/**/*.{mjs,js}' readme.md --write",
+    "test": "npm run test:eslint && npm run test:prettier && npm run test:size",
+    "test:eslint": "eslint . --ext mjs,js",
+    "test:prettier": "prettier '**/*.{json,yml,md}' -l",
+    "test:size": "size-limit",
+    "prepublishOnly": "npm run prepare && npm test"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{mjs,js}": "eslint",
+    "*.{json,yml,md}": "prettier -l"
+  },
+  "eslintIgnore": [
+    "lib"
+  ],
+  "eslintConfig": {
+    "extends": [
+      "env"
+    ]
+  },
+  "prettier": {
+    "proseWrap": "never",
+    "singleQuote": true,
+    "semi": false
+  },
+  "size-limit": [
+    {
+      "name": "ESM",
+      "path": "lib/index.mjs",
+      "limit": "1 KB"
+    },
+    {
+      "name": "CJS",
+      "path": "lib/index.js",
+      "limit": "1 KB"
+    }
+  ]
+}
