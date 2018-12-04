@@ -18,8 +18,21 @@ import React from 'react';
  * Call this function to update the state.
  * @kind typedef
  * @name ReactUseStateSetter
- * @type {string|function}
- * @param {*} newState A new state.
+ * @type {function}
+ * @param {ReactUseStateSetterCallback|*} newState A new state.
+ */
+
+/**
+ * Optional function state updater.
+ * @kind typedef
+ * @name ReactUseStateSetterCallback
+ * @type {function}
+ * @param {function} newState A new state.
+ * @returns {*}
+ * @example <caption>Calling setState with state updater function.</caption>
+ * ```js
+ * setState(prevState => ({...state, ...updatedValues}));
+ * ```
  */
 
 /**
