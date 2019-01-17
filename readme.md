@@ -6,9 +6,9 @@ A micro libary for creating [React useState hooks](https://reactjs.org/docs/hook
 
 Demo: <https://codesandbox.io/s/py5yzmy9jm>
 
-# Not yet published
-
 ## Setup
+
+(Note this isn't published to npm just yet...)
 
 To install from [npm](https://npmjs.com/) run:
 
