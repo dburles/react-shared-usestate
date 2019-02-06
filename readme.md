@@ -58,15 +58,15 @@ Creates a shared state container.
 
 ### type ReactUseStateHook
 
-**Type:** [function](https://mdn.io/function)
+**Type:** function
 
-**Returns:** [Array](https://mdn.io/array)&lt;[ReactUseStateState](#type-reactusestatestate), [ReactUseStateSetter](#type-reactusestatesetter)>
+**Returns:** Array&lt;[ReactUseStateState](#type-reactusestatestate), [ReactUseStateSetter](#type-reactusestatesetter)>
 
 ### type ReactUseStateSetter
 
 Call this function to update the state.
 
-**Type:** [function](https://mdn.io/function)
+**Type:** function
 
 | Parameter  | Type                                                                   | Description  |
 | :--------- | :--------------------------------------------------------------------- | :----------- |
@@ -76,11 +76,11 @@ Call this function to update the state.
 
 Optional function state updater.
 
-**Type:** [function](https://mdn.io/function)
+**Type:** function
 
-| Parameter  | Type                                | Description  |
-| :--------- | :---------------------------------- | :----------- |
-| `newState` | [function](https://mdn.io/function) | A new state. |
+| Parameter  | Type     | Description  |
+| :--------- | :------- | :----------- |
+| `newState` | function | A new state. |
 
 **Returns:** \*
 
