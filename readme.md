@@ -8,6 +8,8 @@ Demo: <https://codesandbox.io/s/py5yzmy9jm>
 
 ## Setup
 
+(Note this isn't published to npm just yet...)
+
 To install from [npm](https://npmjs.com/) run:
 
     npm install react-shared-usestate
