@@ -1,5 +1,4 @@
 {
-  "private": true,
   "name": "react-shared-usestate",
   "version": "1.0.0",
   "description": "Create globally shared React useState hooks.",
