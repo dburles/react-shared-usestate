@@ -55,7 +55,7 @@ export const createSharedUseState = initialState => {
    */
   const set = newState => {
     state = typeof newState === 'function' ? newState(state) : newState;
-    subscriptions.forEach(cb => cb());
+    subscriptions.forEach(cb => cb(newState));
   };
 
   /**
